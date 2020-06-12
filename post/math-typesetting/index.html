@@ -47,53 +47,44 @@
         </div>
     </div>
 </nav><div id="content" class="container">
-<article class="row-fluid navmargin">
-    <header class="page-header">
-        <h1>Tags</h1>
-    </header>
-    
-    
-</article>
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Math Typesetting - Fri, Mar 8, 2019</h1>
+    </div>
+    <p class="lead">A brief guide to setup KaTeX</p>
+    <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
+
+<p>In this example we will be using <a href="https://katex.org/">KaTeX</a></p>
+
 <ul>
-
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/css/">2019-03-11 | css</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/html/">2019-03-11 | html</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/markdown/">2019-03-11 | markdown</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/themes/">2019-03-11 | themes</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/privacy/">2019-03-10 | privacy</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/shortcodes/">2019-03-10 | shortcodes</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/text/">2019-03-09 | text</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/emoji/">2019-03-05 | emoji</a>
-    </li>
-
-    <li>
-        <a href="https://aalborghetti.github.io/tags/index/">0001-01-01 | index</a>
-    </li>
-
+<li>Create a partial under <code>/layouts/partials/math.html</code></li>
+<li>Within this partial reference the <a href="https://katex.org/docs/autorender.html">Auto-render Extension</a> or host these scripts locally.</li>
+<li>Include the partial in your templates like so:<br></li>
 </ul>
+<pre><code>{{ if or .Params.math .Site.Params.math }}
+{{ partial &#34;math.html&#34; . }}
+{{ end }}</code></pre>
+<ul>
+<li>To enable KaTex globally set the parameter <code>math</code> to <code>true</code> in a project's configuration</li>
+<li>To enable KaTex on a per page basis include the parameter <code>math: true</code> in content files.</li>
+</ul>
+
+<p><strong>Note:</strong> Use the online reference of <a href="https://katex.org/docs/supported.html">Supported TeX Functions</a>
+</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>Inline math: <span  class="math">\( \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… \)</span></p>
+
+<p>Block math:</p>
+
+<p><span  class="math">\[
+ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
+\]</span></p>
+    <h4><a href="https://aalborghetti.github.io">Back to Home</a></h4>
+</div>
+
 
         </div><footer class="container">
     <hr class="soften">
